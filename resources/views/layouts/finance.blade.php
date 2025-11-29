@@ -27,8 +27,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8f9fc;
-            color: #2d3748;
+            background: #ecf0f1;
+            color: #2c3e50;
         }
 
         .app-container {
@@ -56,7 +56,7 @@
         }
 
         .sidebar-logo span {
-            color: #6366f1;
+            color: #3498db;
         }
 
         .sidebar-section {
@@ -94,14 +94,14 @@
         }
 
         .sidebar-menu-link:hover {
-            background: #f7fafc;
-            color: #6366f1;
+            background: #ecf0f1;
+            color: #3498db;
         }
 
         .sidebar-menu-link.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3498db;
             color: white;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            box-shadow: none;
         }
 
         .sidebar-menu-icon {
@@ -180,8 +180,8 @@
         }
 
         .search-box input:focus {
-            border-color: #6366f1;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            border-color: #3498db;
+            box-shadow: none;
         }
 
         .search-box::before {
@@ -211,7 +211,7 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3498db;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -269,13 +269,13 @@
         }
 
         .dropdown-item:hover {
-            background: #f7fafc;
-            color: #6366f1;
+            background: #ecf0f1;
+            color: #3498db;
         }
 
         .dropdown-item.danger:hover {
-            background: #fee2e2;
-            color: #dc2626;
+            background: #fadbd8;
+            color: #e74c3c;
         }
 
         .dropdown-divider {
@@ -315,8 +315,7 @@
         }
 
         .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .stat-header {
@@ -454,13 +453,12 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3498db;
             color: white;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            background: #2980b9;
         }
 
         .btn-secondary {
@@ -512,23 +510,23 @@
         }
 
         .badge-success {
-            background: #d4f4dd;
-            color: #22543d;
+            background: #2ecc71;
+            color: white;
         }
 
         .badge-danger {
-            background: #fed7d7;
-            color: #742a2a;
+            background: #e74c3c;
+            color: white;
         }
 
         .badge-warning {
-            background: #feebc8;
-            color: #7c2d12;
+            background: #f39c12;
+            color: white;
         }
 
         .badge-info {
-            background: #bee3f8;
-            color: #2c5282;
+            background: #3498db;
+            color: white;
         }
 
         /* Action Buttons */
@@ -579,7 +577,7 @@
         }
 
         .pagination-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #3498db;
             color: white;
             border-color: transparent;
         }

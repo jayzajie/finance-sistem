@@ -558,7 +558,7 @@
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-logo">
-                <span>f</span>inance.
+                <span>Jay</span>Zie-Dev.
             </div>
 
             <nav>

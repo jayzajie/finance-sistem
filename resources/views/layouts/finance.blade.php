@@ -235,6 +235,55 @@
             color: #a0aec0;
         }
 
+        .user-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 8px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            overflow: hidden;
+            z-index: 50;
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: #f7fafc;
+            color: #6366f1;
+        }
+
+        .dropdown-item.danger:hover {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 4px 0;
+        }
+
         /* Page Title */
         .page-title {
             font-size: 28px;
@@ -704,17 +753,38 @@
                         </svg>
                     </button>
 
-                    <div class="user-profile">
-                        <div class="user-avatar">
-                            {{ strtoupper(substr(auth()->user()->name ?? 'J', 0, 1)) }}
+                    <div class="user-dropdown" x-data="{ open: false }">
+                        <div class="user-profile" @click="open = !open">
+                            <div class="user-avatar">
+                                {{ strtoupper(substr(auth()->user()->name ?? 'J', 0, 1)) }}
+                            </div>
+                            <div class="user-info">
+                                <div class="user-name">Hello, {{ auth()->user()->name ?? 'Jason Doe' }}</div>
+                                <div class="user-role">{{ ucfirst(auth()->user()->role ?? 'admin') }}</div>
+                            </div>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
                         </div>
-                        <div class="user-info">
-                            <div class="user-name">Hello, {{ auth()->user()->name ?? 'Jason Doe' }}</div>
-                            <div class="user-role">{{ ucfirst(auth()->user()->role ?? 'admin') }}</div>
+
+                        <div x-show="open" @click.away="open = false" x-transition class="dropdown-menu">
+                            <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                </svg>
+                                Profil Saya
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item danger">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    Logout
+                                </button>
+                            </form>
                         </div>
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                        </svg>
                     </div>
                 </div>
             </header>
